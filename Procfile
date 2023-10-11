@@ -1,0 +1,1 @@
+web: gunicorn kaberg_design.wsgi:application
