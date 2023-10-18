@@ -10,18 +10,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="An e-store website to find products new and antique for all of your needs.">
     <meta name="author" content="Kai Michael-Mikhail">
-    {% endblock meta %}
+    {% endblock %}
 
     {% block extra_meta %}
     {% endblock %}
     <base href="/">
-    <title>Kaberg Design {% block extra_title %}{% endblock %}</title>
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.png' %}">
     {% block corecss %}
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% endblock corecss %}
+    {% endblock %}
     <!-- Bootsrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -29,11 +28,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
-    {% endblock corejs %}
+    {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
-
+    <title>Kaberg Design {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
     <header class="container-fluid fixed-top"></header>
@@ -43,13 +42,13 @@
     {% endif %}
 
     {% block page_header %}
-    {% endblock page_header %}
+    {% endblock %}
 
     {% block content %}
-    {% endblock content %}
+    {% endblock %}
 
     {% block postloadjs %}
-    {% endblock postloadjs %}
+    {% endblock %}
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
@@ -74,7 +73,7 @@
     
     {% block extrajs %}
         
-    {% endblock extrajs %}
+    {% endblock %}
         
 </body>
 </html>
