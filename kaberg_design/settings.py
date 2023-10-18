@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django.contrib.staticfiles',
     'storages',
+    'home',
 ]
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
