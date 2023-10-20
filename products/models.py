@@ -4,6 +4,10 @@ from django import forms
 from django.core.validators import EmailValidator
 
 class Category(models.Model):
+    
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=254, unique=True)
     slug = models.SlugField(max_length=150, null=True, unique=True)
     parent_category = models.ForeignKey(
