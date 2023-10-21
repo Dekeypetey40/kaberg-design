@@ -12,7 +12,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length=150, null=True, unique=True)
     parent_category = models.ForeignKey(
         'self', related_name='sub_categories',
-        on_delete=models.SET_NULL, null=True
+        on_delete=models.SET_NULL, null=True, blank=True
     )
     description = models.TextField(max_length=1500, null=True, blank=True)
     
@@ -31,7 +31,6 @@ class Product(models.Model):
                                  null=True,
                                  blank=True,
                                  on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=200, null=True, unique=True)
     description = models.TextField()
