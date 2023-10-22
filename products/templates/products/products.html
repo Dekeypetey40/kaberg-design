@@ -2,50 +2,18 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
 {% endblock %}
 
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid pt-3 background-container">
     <div class="container products-container h-100">
-        <div class="row mb-3">
+        <div class="row mb-3 mt-3">
             <h1 class="products-header text-center">Welcome to Kaberg Design</h1>
             <hr class="mb-1">
-
-            {% comment %} <form class="mt-2" method="GET" action="{% url 'store' %}">
-                <div class="input-group w-50 mx-auto">
-                    <input class="form-control rounded-0" type="text" name="q" aria-label="Search-input">
-                    <div class="input-group-append">
-                        <button class="form-control btn btn-dark border border-black rounded-0" type="submit" aria-label="search">
-                            <span class="icon">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </form> {% endcomment %}
-        
-
-            {% comment %} <div class="dropdown text-center">
-                <button class="btn btn-secondary dropdown-toggle mt-3" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Filter by:
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'store' %}">view all</a></li>
-                    {% for category in links %}
-                    <li><a class="dropdown-item" href="{{ category.get_url }}">{{ category.name }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
             <div>
-                <h2 class="fs-5 mt-2 mb-2 float-start">{{ products_count }} products | showing {{ products|length }} {% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}</h2>
-            </div> {% endcomment %}
+                <h2 class="fs-5 mt-2 mb-2 float-start">{{ total_products }} products | showing {{ products|length }} {% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}</h2>
+            </div>
         </div>
     </div>
 </div>

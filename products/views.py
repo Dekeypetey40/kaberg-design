@@ -17,7 +17,7 @@ def product_detail(request, product_id):
 
     return render(request, 'products/product_detail.html', context)
 
-def all_products_view(request):
+def all_products_view(request, category_slug=None):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
@@ -25,6 +25,16 @@ def all_products_view(request):
     categories = None
     sort = None
     direction = None
+
+    if category_slug is not None:
+        categories = get_object_or_404(Category, slug=category_slug)
+        products = Product.objects.filter(
+            category=categories,
+            is_available=True
+            )
+        products_count = products.count()
+    else:
+        total_products = Product.objects.all().count()
 
     if request.GET:
         if 'sort' in request.GET:
@@ -62,6 +72,7 @@ def all_products_view(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'total_products': total_products,
     }
 
     return render(request, 'products/products.html', context)
