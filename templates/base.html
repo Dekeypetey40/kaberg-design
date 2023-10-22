@@ -70,10 +70,13 @@
                 
             </div>
         </nav>
-        <div id="delivery-banner" class="row text-center">
-            <div class="col bg-green text-black">
-                <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
+        <div class="d-flex bg-green">
+            <div id="delivery-banner" class="row ms-auto me-auto">
+                <div class="col text-black">
+                    <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
+                </div>
             </div>
+            <div class="cart-position">
             <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
                 <div class="text-center text-black ml-5">
                     <div><i class="fas fa-shopping-bag fa-lg"></i></div>
@@ -86,9 +89,7 @@
                     </p>
                 </div>
             </a>
-        </div>
-        <div class="row bg-green mt-2">
-            {% include 'includes/main-nav.html' %}
+            </div>
         </div>
     </header>
     <!-- Messages -->
@@ -107,6 +108,9 @@
                     
             </div>
         </div>
+    </div>
+    <div class="row mt-2">
+        {% include 'includes/main-nav.html' %}
     </div>
 
     {% block page_header %}
