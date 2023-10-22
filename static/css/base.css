@@ -6,10 +6,20 @@ body {
     background: url('/static/images/still-life-with-vases-with-spring-flowers-living-room.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
+    color: black;
     font-family: 'Lato';
 }
-
+header {
+    background-color: #A8DF8E;
+    color: #000;
+    padding-bottom: 10px;
+}
+.bg-green {
+    background-color: #A8DF8E;
+}
+.hero-text-bg {
+    background: #F3FDE8;
+}
 /* from Bulma */
 .icon {
     align-items: center;

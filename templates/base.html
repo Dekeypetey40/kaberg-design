@@ -32,23 +32,23 @@
 <body>
     <header class="container-fluid">
     <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-green">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'home' %}"><strong>Kaberg</strong> Design</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand text-black" href="{% url 'home' %}"><strong>Kaberg</strong> Design</a>
+                <button class="navbar-toggler border-black" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a></li>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-black">
+                        <li class="nav-item"><a class="nav-link text-black" aria-current="page" href="{% url 'home' %}">Home</a></li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+                            <a class="nav-link text-black" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
                         </li>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{% url 'account_signup' %}">Register</a>
+                            <a class="nav-link text-black" aria-current="page" href="{% url 'account_signup' %}">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{% url 'account_login' %}">Login</a>
+                            <a class="nav-link text-black" aria-current="page" href="{% url 'account_login' %}">Login</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -67,26 +67,27 @@
                         </div>
                     </form>
                 </div>
-                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
-                    <div class="text-center text-white">
-                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                        <p class="my-0">
-                            {% if grand_total %}
-                                ${{ grand_total|floatformat:2 }}
-                            {% else %}
-                                $0.00
-                            {% endif %}
-                        </p>
-                    </div>
-                </a>
+                
             </div>
         </nav>
         <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black text-white">
+            <div class="col bg-green text-black">
                 <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
-            </div>            
+            </div>
+            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
+                <div class="text-center text-black ml-5">
+                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                    <p class="my-0">
+                        {% if grand_total %}
+                            ${{ grand_total|floatformat:2 }}
+                        {% else %}
+                            $0.00
+                        {% endif %}
+                    </p>
+                </div>
+            </a>
         </div>
-        <div class="row bg-white mt-2">
+        <div class="row bg-green mt-2">
             {% include 'includes/main-nav.html' %}
         </div>
     </header>
@@ -118,10 +119,10 @@
     {% endblock %}
 
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-green text-black">
         <div class="container">
-            <p class="m-0 text-center text-white">Project done for Code Institute by Kai Michael-Mikhail 2023</p>
-            <p class="m-0 text-center text-white">See more of my work <a class="text-white text-underline-hover fw-bold" target="_blank" href="https://github.com/Dekeypetey40">here</a></p>
+            <p class="m-0 text-center fw-bold">Project done for Code Institute by Kai Michael-Mikhail 2023</p>
+            <p class="m-0 text-center fw-bold">See more of my work <a class="text-underline-hover fw-bolder text-black" target="_blank" href="https://github.com/Dekeypetey40">here</a></p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
