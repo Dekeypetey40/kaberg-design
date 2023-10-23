@@ -25,16 +25,7 @@ def all_products_view(request, category_slug=None):
     categories = None
     sort = None
     direction = None
-
-    if category_slug is not None:
-        categories = get_object_or_404(Category, slug=category_slug)
-        products = Product.objects.filter(
-            category=categories,
-            is_available=True
-            )
-        products_count = products.count()
-    else:
-        total_products = Product.objects.all().count()
+    total_products = Product.objects.all().count()
 
     if request.GET:
         if 'sort' in request.GET:
