@@ -112,6 +112,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',  # required by allauth
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'cart.contexts.cart_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -209,3 +210,7 @@ if 'USE_AWS' in os.environ:
     # Override static and media urls in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    
+    FREE_DELIVERY_THRESHOLD = 50
+    STANDARD_DELIVERY_PERCENTAGE = 10
+
