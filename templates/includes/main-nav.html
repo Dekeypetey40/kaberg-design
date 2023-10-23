@@ -12,10 +12,10 @@
         Sort All Products
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">By Price</a></li>
-          <li><a class="dropdown-item" href="#">By Rating</a></li>
-          <li><a class="dropdown-item" href="#">By Category</a></li>
-          <li><a class="dropdown-item" href="#">All Products</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
         </ul>
       </div>
 
@@ -29,11 +29,11 @@
         Home Decoration
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Lighting</a></li>
-          <li><a class="dropdown-item" href="#">Garden</a></li>
-          <li><a class="dropdown-item" href="#">Cushions</a></li>
-          <li><a class="dropdown-item" href="#">Kitchen &amp; Bath</a></li>
-          <li><a class="dropdown-item" href="#">All</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=lamps">Lamps</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=garden">Garden</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=cushions">Cushions</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=kitchen_bath">Kitchen &amp; Bath</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=home_decoration">All</a></li>
         </ul>
       </div>
 
@@ -47,10 +47,10 @@
         For Children
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Toys</a></li>
-          <li><a class="dropdown-item" href="#">Kitchenware</a></li>
-          <li><a class="dropdown-item" href="#">Bedroom</a></li>
-          <li><a class="dropdown-item" href="#">All</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=toys">Toys</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=kitchen">Kitchen</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=bedroom">Bedroom</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=for_children">All</a></li>
         </ul>
       </div>
 
@@ -64,10 +64,10 @@
         Antique
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Pottery</a></li>
-          <li><a class="dropdown-item" href="#">Linens</a></li>
-          <li><a class="dropdown-item" href="#">Lighting</a></li>
-          <li><a class="dropdown-item" href="#">All</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=pottery">Pottery</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=fabrics">Fabrics</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=lighting">Lighting</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=antique">All</a></li>
         </ul>
       </div>
     </div>

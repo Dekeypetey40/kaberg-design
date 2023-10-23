@@ -7,7 +7,7 @@ from django.db.models import Q
 from .models import Product, Category
 
 def product_detail(request, product_id):
-    """ A view to show individual product details """
+    """ A view to show individual products with additional info """
 
     product = get_object_or_404(Product, pk=product_id)
 

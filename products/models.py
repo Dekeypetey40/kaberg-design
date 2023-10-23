@@ -44,6 +44,14 @@ class Product(models.Model):
     def __str__(self):
         return str(self.name)
 
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except ValueError:
+            url = ''
+        return url
+
 
 class ContactUsForm(forms.Form):
     name = forms.CharField(max_length=50)
