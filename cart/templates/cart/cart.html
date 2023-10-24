@@ -48,7 +48,6 @@
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                         <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price }}</p>
@@ -88,7 +87,7 @@
                                         <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                                     </td> {% endcomment %}
                                     <td class="py-3">
-                                        {% comment %} <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p> {% endcomment %}
+                                        <p class="my-0">${{ item.product.price | calc_subtotal:{% comment %}item.quantity {% endcomment %}}}</p> 
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -112,12 +111,12 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                                    {% comment %} <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
                                         </span>
-                                    </a>
+                                    </a> {% endcomment %}
                                 </td>
                             </tr>
                         </table>
