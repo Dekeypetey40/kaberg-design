@@ -43,9 +43,13 @@ def all_products_view(request, category_slug=None):
             products = products.order_by(sortkey)
             
         if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+            if request.GET['category'] in ['home_decoration', 'antique', 'for_children']:
+                product = Product.objects.get(id=1)
+                print(product.category)
+                print(product.category.parent_category)
+                products = products.filter(category__parent_category__slug=request.GET['category'])
+            else:
+                products = products.filter(category__slug=request.GET['category'])
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -53,7 +57,7 @@ def all_products_view(request, category_slug=None):
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
             
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
