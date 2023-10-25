@@ -275,6 +275,12 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+/* product images*/
+.product-img {
+    width: 300px;
+    height: 350px;
+}
+
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
