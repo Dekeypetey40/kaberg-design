@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django import forms
 from django.core.validators import EmailValidator
+from django.contrib.auth.models import User
+from django.dispatch import receiver
 
 class Category(models.Model):
     
