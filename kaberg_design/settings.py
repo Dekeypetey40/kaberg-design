@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'cart',
+    'checkout',
 ]
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
