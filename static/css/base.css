@@ -115,6 +115,9 @@ input[name='q']::placeholder {
     position: relative;
     object-fit: cover;
 }
+.product-img {
+    height: 270px !important;
+}
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
