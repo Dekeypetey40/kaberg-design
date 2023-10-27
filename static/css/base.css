@@ -260,7 +260,6 @@ input[name='q']::placeholder {
     width: 300px;
     height: 350px;
 }
-
 /* Stripe checkout*/
 .StripeElement,
 .stripe-style-input {
