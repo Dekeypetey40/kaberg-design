@@ -27,7 +27,7 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                     <div class="text-right">
-                        <a class="btn btn-secondary rounded-0" href="{% url 'products' %}">Cancel</a>
+                        <a class="btn btn-outline-dark rounded-0" href="{% url 'products' %}">Cancel</a>
                         <button class="btn btn-secondary rounded-0" type="submit">Update Product</button>
                     </div>
                 </form>

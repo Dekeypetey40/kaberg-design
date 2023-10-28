@@ -39,37 +39,11 @@ a:hover{
 
 .text-underline-hover:hover {
     text-decoration: underline;
-  }
-
-.btn-black {
-    background: black;
-    color: white;
 }
 
 .non-nav-btn {
     background: #FFBFBF !important;
     color: #FFBFBF !important;
-}
-.btn-outline-black {
-    background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
-    border: 1px solid black;
-}
-
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    text-decoration: underline;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
 }
 
 .text-black {
