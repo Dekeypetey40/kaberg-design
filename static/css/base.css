@@ -126,6 +126,10 @@ input[name='q']::placeholder {
     max-width: 100%;
     height: 270px !important;
 }
+.image-fluid {
+    max-width: 100%;
+    height: 270px !important;
+}
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
