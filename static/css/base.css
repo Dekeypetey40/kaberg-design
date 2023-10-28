@@ -115,20 +115,21 @@ input[name='q']::placeholder {
     position: relative;
     object-fit: cover;
 }
-.product-img {
+#product-img {
+    max-width: 100%;
     height: 270px !important;
-}
-.image-thumbnail {
     padding: 0.25rem;
     background-color: var(--bs-body-bg);
     border: var(--bs-border-width) solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);
-    max-width: 100%;
-    height: 270px !important;
 }
-.image-fluid {
+#media-product-img {
     max-width: 100%;
     height: 270px !important;
+    padding: 0.25rem;
+    background-color: var(--bs-body-bg);
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
