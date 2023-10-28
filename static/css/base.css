@@ -255,11 +255,6 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
-/* product images*/
-.product-img {
-    width: 300px;
-    height: 350px;
-}
 /* Stripe checkout*/
 .StripeElement,
 .stripe-style-input {
