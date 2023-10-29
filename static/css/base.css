@@ -328,13 +328,13 @@ select option[value=""] {
 
 /* filtering navbar */
 @media (min-width: 768px) {
-    .mobile-nav {
-        display: none;
+    #mobile-nav {
+        display: none !important;
     }
 }
 @media (max-width: 767px) {
-    .main-nav {
-        display: none;
+    #main-nav {
+        display: none !important;
     }
 }
 @media (min-width: 767px) {
@@ -363,7 +363,7 @@ select option[value=""] {
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 70px;
     }
 
     body {
