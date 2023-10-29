@@ -1,63 +1,54 @@
-<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<div class="row">
-  <div class="col-12 mx-auto">
-    <div class="dropdown">
-      <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Filter Products
-      </button>
-      
-    
 
-      <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Sort All Products
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
-        </ul>
-      </div>
-
-      <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Home Decoration
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="{% url 'products' %}?category=lamps">Lamps</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?category=garden">Garden</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?category=cushions">Cushions</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?category=kitchen_bath">Kitchen &amp; Bath</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?category=home_decoration">All</a></li>
-        </ul>
-      </div>
-
-      <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          For Children
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="{% url 'products' %}?category=toys">Toys</a></li>
+<div class="dropdown mobile-nav">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+    data-mdb-toggle="dropdown" aria-expanded="false">
+    Products
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li>
+      <a class="dropdown-item" href="#">
+        Filter Products By &raquo;
+      </a>
+      <ul class="dropdown-menu dropdown-submenu">
+        <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
+      </ul>
+    </li>
+    <li>
+      <a class="dropdown-item" href="#">
+        Home Decoration &raquo;
+      </a>
+      <ul class="dropdown-menu dropdown-submenu">
+        <li><a class="dropdown-item" href="{% url 'products' %}?category=lamps">Lamps</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?category=garden">Garden</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?category=cushions">Cushions</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?category=kitchen_bath">Kitchen &amp; Bath</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?category=home_decoration">All</a></li>
+      </ul>
+    </li>
+    <li>
+      <a class="dropdown-item" href="#">
+        For Children &raquo;
+      </a>
+      <ul class="dropdown-menu dropdown-submenu">
+        <li><a class="dropdown-item" href="{% url 'products' %}?category=toys">Toys</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?category=kitchen">Kitchen</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?category=bedroom">Bedroom</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?category=for_children">All</a></li>
-        </ul>
-      </div>
-
-      <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Antique
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="{% url 'products' %}?category=pottery">Pottery</a></li>
+      </ul>
+    </li>
+    <li>
+      <a class="dropdown-item" href="#">
+        Antique &raquo;
+      </a>
+      <ul class="dropdown-menu dropdown-submenu">
+        li><a class="dropdown-item" href="{% url 'products' %}?category=pottery">Pottery</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?category=fabrics">Fabrics</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?category=lighting">Lighting</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?category=antique">All</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
+      </ul>
+    </li>
+  </ul>
+</div>
