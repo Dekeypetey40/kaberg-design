@@ -14,15 +14,13 @@ def contact_us(request):
     A view to return the contact us page
     """
     if request.method == 'POST':
-        form = ContactUsForm(request.POST)
+        form = ContactUsForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            form = ContactUsForm()
-            
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
+            form.save()
             
             messages.success(
                 request,

@@ -4,11 +4,10 @@ from django.contrib import messages
 from django.db.models.functions import Lower
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 
 from .models import Product, Category
 from checkout.models import Order, CustomerProfile
-from .forms import ProductForm, ContactUsForm
+from .forms import ProductForm
 
 def product_detail(request, product_id):
     """ A view to show individual products with additional info """
