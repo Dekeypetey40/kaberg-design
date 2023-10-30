@@ -71,9 +71,15 @@ I decided to stick with a basic colour scheme. I used green to promote the value
 ## Flow Chart and Wireframes
 
 Wireframe of the homepage
-![Homepage](documentation/homepage-wireframe.png)
+![Homepage](documentation/wireframe-home.png)
 Wireframe of a blog post
-![Blogpost](documentation/blogpost-wireframe.png)
+![Products](documentation/wireframe-products.png)
+![Product](documentation/wireframe-product-detail.png)
+![Contact](documentation/wireframe-contact.png)
+![Profile](documentation/wireframe-profile.png)
+![Review Purchase](documentation/wireframe-review-purchase.png)
+![Checkout](documentation/wireframe-checkout.png)
+![Signin](documentation/wireframe-signin.png)
 
 ## Database Models
 
