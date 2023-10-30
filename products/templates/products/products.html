@@ -57,6 +57,22 @@
                                     {% else %}
                                         <small class="text-muted">No Rating</small>
                                     {% endif %}
+                                    {% if user.is_authenticated %}
+                                    <form action="#" method="POST" class="d-inline">
+
+                                        {% csrf_token %}
+                                        {% if liked %}
+                                        <button class="btn-like" type="submit" name="blogpost_id"
+                                            value="#"><i class="fas fa-heart"></i></button>
+                                        {% else %}
+                                        <button class="btn-like" type="submit" name="blogpost_id"
+                                            value="#"><i class="far fa-heart"></i></button>
+                                        {% endif %}
+
+                                    </form>
+                                    {% else %}
+                                    <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                    {% endif %}
                                     {% if request.user.is_superuser %}
                                         <small class="ml-3">
                                             <a href="{% url 'edit_product' product.id %}">Edit</a> | 

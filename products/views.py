@@ -5,7 +5,7 @@ from django.db.models.functions import Lower
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
-from .models import Product, Category
+from .models import Product, Favorites
 from checkout.models import Order, CustomerProfile
 from .forms import ProductForm
 
@@ -138,3 +138,18 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def add_to_favorites(request, product_id):
+    """
+    Toggles a product as a favorite if user is logged in
+    """
+    product = get_object_or_404(Product, product_id=product_id)
+    favorite = Favorites.objects.get(user=request.user,
+                                     product=request.POST.get('product_id'))
+    if product.favorites:
+        favorite.delete()
+    else:
+        favorite=Favorites.object.create(user=request.user,
+                                         product=request.POST.get('product_id'))

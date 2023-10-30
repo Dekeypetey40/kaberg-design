@@ -54,8 +54,10 @@ class Product(models.Model):
         return url
 
 
-class ContactUsForm(forms.Form):
-    name = forms.CharField(max_length=50)
-    email = forms.CharField(validators=[EmailValidator()])
-    subject = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
+class Favorites(models.Model):
+    user = models.ForeignKey(User, 
+                             related_name='favorites',
+                             on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,
+                             related_name='favorites',
+                             on_delete=models.CASCADE)
