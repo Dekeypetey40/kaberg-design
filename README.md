@@ -62,9 +62,11 @@ An agile approach was used to plan and make this project. I made use of GitHub's
 
 The goal of this project was to make a functioning e-store. The baseline for this project was to have full CRUD (Create, Read, Update, and Delete) functionality for both admins and users where applicable. One can see this relfected in the user stories and their labels as must have, should have, and could have. At a bare minimum, the aim was to also have a functioning payment system and a subscription form for a newsletter.
 
-## Color
+## Colour
 
-I decided to stick with a basic color scheme. I used green to promote the value of recycled and antique products. Otherwise, the intention was to not distract from the product images and instead highlight them.
+I decided to stick with a basic colour scheme. I used green to promote the value of recycled and antique products. Otherwise, the intention was to not distract from the product images and instead highlight them. The colour scheme and background image chosen for the homepage where inspired by the color scheme imaged below.
+
+![Colour Scheme](documentation/color-scheme.png)
 
 ## Flow Chart and Wireframes
 
