@@ -81,9 +81,9 @@ Wireframe of a blog post
 ![Checkout](documentation/wireframe-checkout.png)
 ![Signin](documentation/wireframe-signin.png)
 
-## Database Models
+## Entity Relationship
 
-![Database Models](documentation/db-models.png)
+![Database Models](documentation/model-relationships.png)
 
 # Features
 
