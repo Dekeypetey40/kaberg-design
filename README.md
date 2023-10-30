@@ -60,11 +60,11 @@ An agile approach was used to plan and make this project. I made use of GitHub's
 
 ## Scope
 
-The goal of this project was to make a functioning blog the tabletop roleplaying community can engage with topics pertinent to the community. The baseline for this project was to have full CRUD (Create, Read, Update, and Delete) functionality. One can see this relfected in the user stories and their labels as must have, should have, and could have. It was decided that, at a bare minimum, the blog would have its home page with all of the posts and one would be able to click on each post and leave comments. Then I was trying to decide between having an about page, a polls page, or both. Due to time constraints I decided to implement the polls page only as it would provide more opportunity for users to engage with the community.
+The goal of this project was to make a functioning e-store. The baseline for this project was to have full CRUD (Create, Read, Update, and Delete) functionality for both admins and users where applicable. One can see this relfected in the user stories and their labels as must have, should have, and could have. At a bare minimum, the aim was to also have a functioning payment system and a subscription form for a newsletter.
 
 ## Color
 
-I decided to stick with a basic color scheme. I used black for the navbar and footer and left the body of my pages white. The buttons found throughout the site were simply different shades of blue. I decided most of the color would come from the images on the blog posts, which could really be any color. This is why I stuck with a simple color scheme otherwise as to not make the site feel too busy or chaotic.
+I decided to stick with a basic color scheme. I used green to promote the value of recycled and antique products. Otherwise, the intention was to not distract from the product images and instead highlight them.
 
 ## Flow Chart and Wireframes
 
@@ -83,7 +83,8 @@ Wireframe of a blog post
 
 - The bootstrap template had a responsive navbar that turns into a burger menu on smaller screens.
 - When you have not logged in it shows register and login options and a logout option when logged in.
-- The link that is active is lighter so the user knows where on the webpage they are.
+- When logged in as an admin the product management link becomes available.
+- The link that is active is bolded so the user knows where on the webpage they are.
 ![Navbar logged in](documentation/navbar-logged-in.png)
 ![Navbar logged out](documentation/navbar-logged-out.png)
 ![Navbar small screen](documentation/navbar-small-screen.png)
