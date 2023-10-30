@@ -146,9 +146,10 @@ def add_to_favorites(request, product_id):
     Toggles a product as a favorite if user is logged in
     """
     product = get_object_or_404(Product, pk=product_id)
-    favorite = Favorites.objects.get(user=request.user,
-                                     product=request.POST.get('product_id'))
-    if product.favorites:
+    favorite = Favorites.objects.filter(product=product, user=request.user)
+
+    if favorite.exists():
+        favorite = favorite.first()
         favorite.delete()
     else:
         favorite=Favorites.object.create(user=request.user,
