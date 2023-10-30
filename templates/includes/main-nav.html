@@ -87,56 +87,28 @@
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li>
-              <a class="dropdown-item" href="#">
-                All Categories By &raquo;
+              <a class="dropdown-item" href="{% url 'products' %}">
+                All Products
               </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
-              </ul>
             </li>
             <li>
-              <a class="dropdown-item" href="#">
-                Home Decoration &raquo;
+              <a class="dropdown-item" href="{% url 'products' %}?category=home_decoration">
+                Home Decoration
               </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=lamps">Lamps</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=garden">Garden</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=cushions">Cushions</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=kitchen_bath">Kitchen &amp; Bath</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=home_decoration">All</a></li>
-              </ul>
             </li>
             <li>
-            <a class="dropdown-item" href="#">
-              For Children &raquo;
-            </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=toys">Toys</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=kitchen">Kitchen</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=bedroom">Bedroom</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=for_children">All</a></li>
-              </ul>
+              <a class="dropdown-item" href="{% url 'products' %}?category=for_children">
+                For Children
+              </a>
             </li>
-
-            <a class="dropdown-item" href="#">
-              Antique &raquo;
-            </a>
             <li>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=pottery">Pottery</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=fabrics">Fabrics</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=lighting">Lighting</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?category=antique">All</a></li>
-              </ul>
+              <a class="dropdown-item" href="{% url 'products' %}?category=antique">
+                Antique
+              </a>
             </li>
           </ul>
       </div>
     </div>
   </div>
 </div>
-
-
 

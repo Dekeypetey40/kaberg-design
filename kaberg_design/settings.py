@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'profiles',
+    'marketing',
 ]
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
@@ -219,6 +220,11 @@ if 'USE_AWS' in os.environ:
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 
+# Mailchimp
+MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY')
+MAILCHIMP_REGION = os.environ.get('MAILCHIMP_REGION')
+MAILCHIMP_DATA_CENTER = os.environ.get('MAILCHIMP_DATA_CENTER')
+MAILCHIMP_EMAIL_LIST_ID = os.environ.get('MAILCHIMP_EMAIL_LIST_ID')
 # Stripe
 STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
