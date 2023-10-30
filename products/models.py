@@ -61,3 +61,5 @@ class Favorites(models.Model):
     product = models.ForeignKey(Product,
                              related_name='favorites',
                              on_delete=models.CASCADE)
+    def __str__(self):
+        return f'({self.user},favorites)'
