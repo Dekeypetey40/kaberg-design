@@ -3,8 +3,8 @@ from django import forms
 from django.core.validators import EmailValidator
 
 
-class ContactUs(forms.Form):
-    name = forms.CharField(max_length=50)
-    email = forms.CharField(validators=[EmailValidator()])
-    subject = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
+class ContactUs(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.CharField(validators=[EmailValidator()])
+    subject = models.CharField(max_length=100)
+    message = models.CharField(max_length=500)
