@@ -1,3 +1,14 @@
 from django.db import models
+from django.utils import timezone
+import os
 
-# Create your models here.
+class SubscribedUsers(models.Model):
+    class Meta:
+        verbose_name_plural = 'Subscribed Users'
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True, max_length=100)
+    created_date = models.DateTimeField('Date created', default=timezone.now)
+    
+    def __str__(self):
+        return self.email

@@ -15,25 +15,26 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
                 <hr>
-                <h2 class="logo-font mb-4">Unsubscribe</h2>
-                <p>Simply enter your email to unsubcribe.</p>
+                <h2 class="logo-font mb-4">Unsubscribe to our newsletter</h2>
+                <p>Simply enter your email to unsubscribe.</p>
                 <hr>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
-                <form method="POST" action="{% url 'contact_us' %}" class="form mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'subscribe' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="row justify-content-center text-right">
+                    <div class="col-auto">
+                            <p class="pt-2">Unsubscribe from our newsletter</p>
+                        </div>
+                        <div class="col-auto">
+                            <input id="email" name="email" type="email" class="form-control" placeholder="Email address"/>
+                        </div>
+                    <div class="row justify-content-center text-right mt-3">
                         <a class="btn btn-outline-dark rounded-0 mx-3 mb-3" href="{% url 'home' %}">Cancel</a>
-                        <button class="btn btn-danger rounded-0 mx-3" type="submit">Unsubcribe</button>
+                        <button class="btn btn-danger rounded-0 mx-3 mb-3" type="submit">Unsubscribe</button>
                     </div>
-                </form>
-                <div class="row justify-content-center text-right">
-                    <a class="btn btn-secondary rounded-0 mx-3" href="{% url 'subscribe' %}">Subcribe</a>
-                </div>
-            </div>            
+                </form>      
         </div>
     </div>
 {% endblock %}

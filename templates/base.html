@@ -137,8 +137,6 @@
     {% block content %}
     {% endblock %}
 
-    {% block postloadjs %}
-    {% endblock %}
 
     <!-- Footer-->
     <footer class="py-3 bg-green text-black">
@@ -156,7 +154,8 @@
             }
         });
     </script>
-    
+    {% block postloadjs %}
+    {% endblock %}
     {% block extrajs %}
         
     {% endblock %}

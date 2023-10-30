@@ -22,16 +22,26 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
-                <form method="POST" class="form mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'subscribe' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    <div class="col-auto">
+                            <p class="pt-2">Subscribe for our newsletter</p>
+                        </div>
+
+                        <div class="col-auto">
+                            <input id="name" name="name" class="form-control" placeholder="Your Name"/>
+                        </div>
+
+                        <div class="col-auto">
+                            <input id="email" name="email" type="email" class="form-control" placeholder="Email address"/>
+                        </div>
                     <div class="row justify-content-center text-right">
                         <a class="btn btn-outline-dark rounded-0 mx-3 mb-3" href="{% url 'home' %}">Cancel</a>
-                        <button class="btn btn-secondary rounded-0 mx-3" type="submit">Subcribe</button>
+                        <button class="btn btn-secondary rounded-0 mx-3" type="submit">Subscribe</button>
                     </div>
                 </form>
                 <div class="row justify-content-center text-right">
-                    <a class="btn btn-danger rounded-0 mx-3" href="{% url 'unsubscribe' %}">Unsubcribe</a>
+                    <a class="btn btn-danger rounded-0 mx-3" href="{% url 'unsubscribe' %}">Unsubscribe</a>
                 </div>
             </div>            
         </div>
