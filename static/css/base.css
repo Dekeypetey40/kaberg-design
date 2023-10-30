@@ -5,9 +5,15 @@ html {
 body {
     background: url('/static/images/still-life-with-vases-with-spring-flowers-living-room.webp') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    min-height: calc(100vh - 164px);
     color: black;
     font-family: 'Lato';
+    display:flex;
+    flex-direction: column;
+    overflow-x: hidden !important;
+}
+main {
+    flex: 1 0 auto;
 }
 header {
     background-color: #A8DF8E;

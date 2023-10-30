@@ -60,7 +60,7 @@ def subscribe(request):
     template = 'marketing/subscribe.html'
     return render(request, template)
 
-@login_required
+
 def unsubscribe(request):
     if request.method == 'POST':
         email = request.POST.get('email', None)

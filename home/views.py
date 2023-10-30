@@ -22,20 +22,32 @@ def contact_us(request):
             message = form.cleaned_data['message'] + 'Contact Form Submission from {}'.format(name)
             form.save()
             
-            messages.success(
-                request,
-                'Message sent!')
-            
-            send_mail(
-               subject = subject,
-               message = message,
-               from_email = email, # customer's email
-               recipient_list = ['kmichaelmikhail@gmail.com'], # Sends to my email
-           )
+
+            try:
+                send_mail(
+                subject = subject,
+                message = message,
+                from_email = email, # customer's email
+                recipient_list = ['kmichaelmikhail@gmail.com'], # Sends to my email
+            )
+                send_mail(
+                subject = subject,
+                message = 'Thank you for contacting us, we will get back to you shortly.',
+                from_email = email, # customer's email
+                recipient_list = [email], # Sends to my email
+            )
+                messages.success(
+                    request,
+                    'Message sent!')
+            except:
+                messages.error(
+                    request,
+                    "There was an error sending your message!"
+                    )
         else:
             messages.error(
                     request,
-                    "There was an error sending your message!"
+                    "There was an error in the form."
                     )
     form = ContactUsForm()
     context = {'form': form}

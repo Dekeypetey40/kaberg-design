@@ -111,33 +111,34 @@
             </div>
         </div>
     </header>
-    <!-- Messages -->
-    <div class="container">
-        <div class="row">
-            <div class="col md-8 offset-md-2">
-                
-                {% for message in messages %}
-                    <div class="alert {{ message.tags }} alert-dismissable fade show mt-3" id="msg" role="alert">
-                        {{ message | safe}}
-                        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close">
-
-                        </button>
-                    </div> 
-                {% endfor %}
+    <main>
+        <!-- Messages -->
+        <div class="container">
+            <div class="row">
+                <div class="col md-8 offset-md-2">
                     
+                    {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissable fade show mt-3" id="msg" role="alert">
+                            {{ message | safe}}
+                            <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close">
+
+                            </button>
+                        </div> 
+                    {% endfor %}
+                        
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-2">
-        {% include 'includes/main-nav.html' %}
-    </div>
-    {% block page_header %}
-    {% endblock %}
+        <div class="row mt-2">
+            {% include 'includes/main-nav.html' %}
+        </div>
+        {% block page_header %}
+        {% endblock %}
 
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
 
-
+    </main>
     <!-- Footer-->
     <footer class="py-3 bg-green text-black">
         <div class="container">
