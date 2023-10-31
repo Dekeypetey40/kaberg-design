@@ -129,35 +129,25 @@ Wireframe of a blog post
 - Here you can send a message to the store owner
 - It sends an email
 - Once you vote you get to see a piechart with the results of the poll.
-![List of polls](documentation/list-of-polls.png)
-![Poll Results](documentation/poll-voted.png)
-![Multiple Vote Attempts](documentation/poll-voted-again.png)
-
-## Account creation and logging in and out
-
-
+![Contact](documentation/contact.png)
+![Mail Sent](documentation/mail-sent-to-temp.png)
 
 ## Comment CRUD Functionality for Users
 
-- Comments must be approved by an admin. 
-- Users have CRUD functionality on the front end.
-- If you are the user who made the comment the Edit and Delete buttons appear allowing you to modify the comment.
-- If you are not the user who made the comment and try to access the edit or delete urls you will be prevented from updating that comment.
-
-![comment approval](documentation/comment-awaiting-approval.png)
-![comment](documentation/crud-comments-user.png)
-![comment edit](documentation/edit-comment.png)
-![comment](documentation/edited-comment.png)
-![comment](documentation/confirm-delete.png)
-![comment](documentation/defensive-programming.png)
+- Can add products to cart
+- Can fill profile with delivery information
+- Can save delivery information at checkout
 
 ---
 
-# Marketing
+# Future Features
 
-- Showing users list of favorited products
+- Showing users list of favorited products.
 - An about page.
-- Send email upon purchase
+- Send email upon purchase.
+- Improve Add to Favorites functionality.
+
+# Marketing
 
 ## Facebook
 
@@ -171,19 +161,10 @@ Wireframe of a blog post
 
 ---
 
----
-
-# Future Features
-
-- Showing users list of favorited products
-- An about page.
-- Send email upon purchase
-
----
-
 # Testing
 
 All testing and validation information can be found [here](TESTING.md).
+
 ---
 
 # Deployment
@@ -379,7 +360,8 @@ Now that you’re in your virtual environment you can install packages.
   - This framework made it fast and relatively easy to make a full-stack website.
 - Bootstrap 5
   - A great css framework to easily style web pages. There is lots of free templates available and they are easy to modify to my needs.
-- 
+- Stripe
+  - Used to make secure payments.
 
 ## Content
 
