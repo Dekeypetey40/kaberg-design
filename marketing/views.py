@@ -25,14 +25,14 @@ def subscribe(request):
 
         if get_user_model().objects.filter(email=email).first():
             messages.error(request,
-                           f"There is a registered user with {email}.
-                           You must login to subscribe or unsubscribe.")
+                           f"There is a registered user with {email}.\
+                               You must login to subscribe or unsubscribe.")
             return redirect("home")
 
         subscribe_user = SubscribedUsers.objects.filter(email=email).first()
         if subscribe_user:
-            messages.error(request, f"{email} email address is
-                           already on our list of subscribers.")
+            messages.error(request, f"{email} email address is already\
+                on our list of subscribers.")
             return redirect('home')
 
         try:
@@ -45,8 +45,8 @@ def subscribe(request):
         subscribe_model_instance.name = name
         subscribe_model_instance.email = email
         subscribe_model_instance.save()
-        messages.success(request, f'{email} was used
-                         to subscribe to our newsletter!')
+        messages.success(request, f'{email} was used to\
+            subscribe to our newsletter!')
         return redirect("home")
     template = 'marketing/subscribe.html'
     return render(request, template)
@@ -62,7 +62,7 @@ def unsubscribe(request):
             return redirect("home")
 
         if get_user_model().objects.filter(email=email).first():
-            messages.error(request, f"There is a registered user with {email}.
+            messages.error(request, f"There is a registered user with {email}.\
                            You must login to subscribe or unsubscribe.")
             return redirect("home")
 
