@@ -154,4 +154,5 @@ def add_to_favorites(request, product_id):
     else:
         favorite=Favorites.objects.create(user=request.user,
                                          product=product)
+        messages.success(request, 'Thanks for liking our product!')
     return redirect(reverse('products'))
