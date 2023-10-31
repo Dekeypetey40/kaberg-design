@@ -66,21 +66,15 @@
 
 ## Responsive Design
 
-### Homepage and Blog Post
+### Homepage and Products
 
-![Mobile Homepage](documentation/homepage-mobile.png)
-![Mobile Blog Post](documentation/blog-post-mobile.png)
+![Mobile Homepage](documentation/mobile-home.png)
+![Mobile Blog Post](documentation/mobile-products.png)
 
-### Polls
+### Checkout
 
-![Mobile poll list](documentation/mobile-polls-list.png)
-![Mobile poll](documentation/mobile-poll.png)
-
-### Login, Logout, Register
-
-![Logout](documentation/loggout-mobile.png)
-![Login](documentation/sign-in-mobile.png)
-![Register](documentation/register-mobile.png)
+![Mobile checkout](documentation/mobile-checkout.png)
+![Mobile buy](documentation/mobile-buy.png)
 
 ## Validation
 
@@ -91,12 +85,6 @@ All python code written by me passes PEP8 standards using the [CI Python Linter]
 ### HTML W3C Validator
 
 All HTML code written by me passed through the [W3C HTML validator](https://validator.w3.org/#validate_by_uri).
-- An enormous amount of errors appears when a lot of formatting is applied to the blog post's content. 
-- The code that produces the errors is not written by me, but is what is produced by the {{post.content|safe}} tag.
-![HTML validation problem](documentation/my-code-post-content.png)
-![HTML validation problem](documentation/produced-content-code.png)
-- All of the errors produce seen below are between my paragraph tags containing {{post.content|safe}}.
-![HTML validation errors](documentation/errors-html-validation.png)
 
 ### Jigsaw CSS Validator
 
