@@ -95,8 +95,9 @@ All css code passes validation
 ### Lighthouse Validation
 
 - All fields that functioned were above 90 on all pages when I ran lighthouse.
+  - The only outlier was accessibility on the cart page at an 89.
 - There was an error with lighthouse where the performance did not show, so I could not see my performance ratings
-    - To mitigate the potential performance issues all product images were resized and converted to webpage format.
+  - To mitigate the potential performance issues all product images were resized and converted to webpage format.
 
 ## Bugs
 
