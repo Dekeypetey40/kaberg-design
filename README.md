@@ -152,6 +152,26 @@ Wireframe of a blog post
 
 ---
 
+# Marketing
+
+- Showing users list of favorited products
+- An about page.
+- Send email upon purchase
+
+## Facebook
+
+- My facebook page allows people to connect with Kaberg Design.
+- The link to my page can be found [here](https://www.facebook.com/profile.php?id=61552848392818)
+
+## Email Marketing
+
+- I have set up the option for clients to sign-up to a newsletter via a form that is linked in the footer of the website.
+- This information is stored in a model, which can be found in the admin. 
+
+---
+
+---
+
 # Future Features
 
 - Showing users list of favorited products
@@ -369,4 +389,3 @@ Now that you’re in your virtual environment you can install packages.
 - Code Institue's Boutique project inspired my own e-commerce website, which I customized to suit my needs.
 
 ---
-https://www.facebook.com/profile.php?id=61552848392818

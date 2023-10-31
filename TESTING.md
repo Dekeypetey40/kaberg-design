@@ -109,25 +109,23 @@ All css code passes validation
 
 Bug 1
 
-- Problem: My custom css would not load on my website when hosted on heroku. It said the file was of the wrong type (MIME).
-- Solution: With consultation from my mentor I realized that this is a common problem with heroku. I installed the django-heroku library and after setting it up my css file worked with no issues.
+- Problem: My custom css and images would not load on my website when hosted on heroku.
+- Solution: With consultation from my mentor I realized that I had an issue with how I had set up media and static files in relation to my AWS bucket. After fixing these settings it worked properly
 
 Bug 2
 
-- Problem: When I modified my vote and post model to include a user/author respectively the console informed me it needed some kind of placeholder for the objects already created based on the new model property.
-- Solution: I input the following perameters into the user variable. A almost identical solution to the below can be found in the Post model.
-![user in Vote model](documentation/user-vote-model.png)
+- Problem: I could not get MailChimp working properly without throwing errors
+- Solution: I instead made my own Subscribed User and contact us models + forms and used django to send me an email when someone uses the contact us form.
 
 Bug 3
 
-- Problem: It appeared that my polls url was not using the template I had assigned to it. All that displayed on the front end was the base.html template with no content in the middle.
-- Solution: After adjusting the view.py, models.py, and urls.py files I realized I had simply forgotten to include the block content tag on my poll templates.
+- Problem: When a user clicked on the favorites button it added to the database, but the template did not recognize that and therefore show them the remove from favorites button.
+- Solution: After hours of googling and troubleshooting with my mentor this was not solved. I tried creating custom tags in my view for my template, and making many different kinds of database requests in my view. I decided that, at a minimum, it was acceptable for the store owner to use that data to inform them as to which products were popular. This functionality will be improved in the future.
 
-Bug 3
+Bug 4
 
-- Problem: Reverse was not working and I got a 404 error when a user who was not logged in tried to vote.
-- Solution: After googling I found out I had to add redirect to reverse. This solved the problem.
-
+- Problem: Filter function was not able to find all products that had a subcategory sharing the same parent category.
+- Solution: I adjusted the database requests I was making in my view to in order to query the right data in database in the template.
 
 ## Unfixed Bugs
 
