@@ -20,28 +20,29 @@ def contact_us(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             subject = form.cleaned_data['subject']
-            message = form.cleaned_data
-            ['message'] + 'Contact Form Submission from {}'.format(name)
+            message = form.cleaned_data['message'] + 'Contact Form\
+                Submission from {}'.format(name)
             form.save()
 
             try:
                 send_mail(
-                    subject=subject,
-                    message=message,
-                    from_email=email,  # customer's email
-                    recipient_list=['kmichaelmikhail@gmail.com'],
-                    )
+                 subject=subject,
+                 message=message,
+                 from_email=email,  # customer's email
+                 # Sends to my email
+                 recipient_list=['kmichaelmikhail@gmail.com'],
+                 )
                 send_mail(
-                    subject=subject,
-                    message='Thank you for contacting us,\
-                        we will get back to you shortly.',
-                    from_email=email,  # customer's email
-                    recipient_list=[email],  # Sends to my email
-                )
+                 subject=subject,
+                 message='Thank you for contacting\
+                     us, we will get back to you shortly.',
+                 from_email=email,  # customer's email
+                 recipient_list=[email],  # Sends to my email
+                 )
                 messages.success(
                     request,
                     'Message sent!')
-            except Exception as e:
+            except ImportError:
                 messages.error(
                     request,
                     "There was an error sending your message!"
@@ -49,7 +50,7 @@ def contact_us(request):
         else:
             messages.error(
                     request,
-                    "There was an error in the form."
+                    "There was an error sending your message!"
                     )
     form = ContactUsForm()
     context = {'form': form}
