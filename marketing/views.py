@@ -29,12 +29,6 @@ def subscribe(request):
                     to subscribe or unsubscribe.")
             return redirect("home")
 
-        subscribe_user = SubscribedUsers.objects.filter(email=email).first()
-        if subscribe_user:
-            messages.error(request, f"{email} email address is\
-                already on our list of subscribers.")
-            return redirect('home')
-
         try:
             validate_email(email)
         except ValidationError as e:
