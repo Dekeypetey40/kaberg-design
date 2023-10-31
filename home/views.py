@@ -33,10 +33,11 @@ def contact_us(request):
                     )
                 send_mail(
                     subject=subject,
-                    message='Thank you for contacting us, we will get back to you shortly.',  # noqa
+                    message='Thank you for contacting us,\
+                        we will get back to you shortly.',
                     from_email=email,  # customer's email
                     recipient_list=[email],  # Sends to my email
-            )
+                )
                 messages.success(
                     request,
                     'Message sent!')

@@ -58,7 +58,8 @@ def unsubscribe(request):
 
         if not email:
             messages.error(request,
-                           "You must input a proper name and email to unsubscribe")  # noqa
+                           "You must input a proper\
+                               name and email to unsubscribe")
             return redirect("home")
 
         if get_user_model().objects.filter(email=email).first():
