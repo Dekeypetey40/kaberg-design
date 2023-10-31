@@ -89,24 +89,18 @@ Wireframe of a blog post
 
 ## Navbar
 
-- The bootstrap template had a responsive navbar that turns into a burger menu on smaller screens.
+- Responsive navbar that turns into a burger menu on smaller screens.
 - When you have not logged in it shows register and login options and a logout option when logged in.
 - When logged in as an admin the product management link becomes available.
 - The link that is active is bolded so the user knows where on the webpage they are.
-![Navbar logged in](documentation/navbar-logged-in.png)
+![Navbar logged in](documentation/navbar-log-in.png)
 ![Navbar logged out](documentation/navbar-logged-out.png)
 ![Navbar small screen](documentation/navbar-small-screen.png)
 ![Navbar extended menu](documentation/navbar-menu-extended.png)
 
 ## Homepage
 
-- The homepage is simple and paginated.
-- It shows three blog posts at a time and immediately lets the user know what the purpose of the site is.
-- The blue tag and read more buttons invite the reader to click them.
-  - The read more button lets you read the whole blog post.
-  - The tag buttons filters blog posts by tag.
-- You can see how many likes each blog post has.
-![Image of welcome screen](documentation/ttrpg-home-page.png)
+![Image of welcome screen](documentation/kaberg-design-home-page.png)
 
 ## Reading a blog post
 
@@ -133,8 +127,8 @@ Wireframe of a blog post
 ## Account creation and logging in and out
 
 - There are messages letting the user know if they have successfully signed in or out.
-- If a user wants to logout the site asks them if they are sure. 
-- Username and password fields are required and prompt the user if they input invalid data. 
+- If a user wants to logout the site asks them if they are sure.
+- Username and password fields are required and prompt the user if they input invalid data.
 ![Invalid Username](documentation/invalid-username.png)
 ![Password Required](documentation/password-required.png)
 ![Login](documentation/login-form.png)
