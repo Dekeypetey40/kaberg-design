@@ -20,6 +20,7 @@ def product_detail(request, product_id):
 
     return render(request, 'products/product_detail.html', context)
 
+
 def all_products_view(request, category_slug=None):
     """ A view to show all products, including sorting and search queries """
 
@@ -44,22 +45,25 @@ def all_products_view(request, category_slug=None):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
-            
+
         if 'category' in request.GET:
-            if request.GET['category'] in ['home_decoration', 'antique', 'for_children']:
+            if request.GET['category'] in ['home_decoration',
+                                           'antique',
+                                           'for_children']:
                 product = Product.objects.get(id=1)
                 print(product.category)
                 print(product.category.parent_category)
-                products = products.filter(category__parent_category__slug=request.GET['category'])
+                products = products.filter(category__parent_category__slug=request.GET['category'])  # noqa
             else:
-                products = products.filter(category__slug=request.GET['category'])
+                products = products.filter(category__slug=request.GET['category'])  # noqa
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request,
+                               "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
-            
+
             queries = Q(name__icontains=query)
             products = products.filter(queries)
 
@@ -75,6 +79,7 @@ def all_products_view(request, category_slug=None):
 
     return render(request, 'products/products.html', context)
 
+
 @login_required
 def add_product(request):
     """ Add a product to the store if admin """
@@ -89,7 +94,8 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect('product_detail', product.id)
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to add product. Please ensure the form is valid.')  # noqa
     else:
         form = ProductForm()
 
@@ -99,6 +105,7 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -114,7 +121,7 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -126,6 +133,7 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_product(request, product_id):
@@ -152,7 +160,7 @@ def add_to_favorites(request, product_id):
         favorite = favorite.first()
         favorite.delete()
     else:
-        favorite=Favorites.objects.create(user=request.user,
-                                         product=product)
+        favorite = Favorites.objects.create(user=request.user,
+                                            product=product)
         messages.success(request, 'Thanks for liking our product!')
     return redirect(reverse('products'))

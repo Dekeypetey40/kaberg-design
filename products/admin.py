@@ -3,6 +3,7 @@ from .models import Product, Category, Favorites
 
 # Register your models here.
 
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'slug',
@@ -21,11 +22,14 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
         'slug',
     )
+
+
 class FavoritesAdmin(admin.ModelAdmin):
     list_display = (
         'user',
         'product',
     )
+
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)

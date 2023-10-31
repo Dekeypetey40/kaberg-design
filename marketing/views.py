@@ -19,17 +19,21 @@ def subscribe(request):
         email = request.POST.get('email', None)
 
         if not email:
-            messages.error(request, "You must input a proper email to subscribe")
+            messages.error(request,
+                           "You must input a proper email to subscribe")
             return redirect("home")
 
         if get_user_model().objects.filter(email=email).first():
-            messages.error(request, f"There is a registered user with {email}. You must login to subscribe or unsubscribe.")
-            return redirect("home") 
+            messages.error(request,
+                           f"There is a registered user with {email}.
+                           You must login to subscribe or unsubscribe.")
+            return redirect("home")
 
         subscribe_user = SubscribedUsers.objects.filter(email=email).first()
         if subscribe_user:
-            messages.error(request, f"{email} email address is already on our list of subscribers.")
-            return redirect('home')  
+            messages.error(request, f"{email} email address is
+                           already on our list of subscribers.")
+            return redirect('home')
 
         try:
             validate_email(email)
@@ -41,7 +45,8 @@ def subscribe(request):
         subscribe_model_instance.name = name
         subscribe_model_instance.email = email
         subscribe_model_instance.save()
-        messages.success(request, f'{email} was used to subscribe to our newsletter!')
+        messages.success(request, f'{email} was used
+                         to subscribe to our newsletter!')
         return redirect("home")
     template = 'marketing/subscribe.html'
     return render(request, template)
@@ -52,17 +57,19 @@ def unsubscribe(request):
         email = request.POST.get('email', None)
 
         if not email:
-            messages.error(request, "You must input a proper name and email to unsubscribe")
+            messages.error(request,
+                           "You must input a proper name and email to unsubscribe")  # noqa
             return redirect("home")
 
         if get_user_model().objects.filter(email=email).first():
-            messages.error(request, f"There is a registered user with {email}. You must login to subscribe or unsubscribe.")
-            return redirect("home") 
+            messages.error(request, f"There is a registered user with {email}.
+                           You must login to subscribe or unsubscribe.")
+            return redirect("home")
 
         unsubscribe_user = SubscribedUsers.objects.filter(email=email).first()
         if not unsubscribe_user:
             messages.error(request, f"{email} is not on our list.")
-            return redirect('home')  
+            return redirect('home')
 
         try:
             validate_email(email)
@@ -70,9 +77,11 @@ def unsubscribe(request):
             messages.error(request, e.messages[0])
             return redirect("home")
 
-        subscribe_model_instance = get_object_or_404(SubscribedUsers, email=email)
+        subscribe_model_instance = get_object_or_404(SubscribedUsers,
+                                                     email=email)
         subscribe_model_instance.delete()
-        messages.success(request, f'{email} will no longer receive our newsletters')
+        messages.success(request,
+                         f'{email} will no longer receive our newsletters')
         return redirect("home")
     template = 'marketing/unsubscribe.html'
     return render(request, template)

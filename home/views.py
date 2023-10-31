@@ -3,6 +3,7 @@ from .forms import ContactUsForm
 from django.contrib import messages
 from django.core.mail import send_mail
 
+
 def index(request):
     """ View for the home page """
 
@@ -19,9 +20,10 @@ def contact_us(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message'] + 'Contact Form Submission from {}'.format(name)
+            message = form.cleaned_data
+            ['message'] + 'Contact Form Submission from {}'.format(name)
             form.save()
-            
+
 
             try:
                 send_mail(

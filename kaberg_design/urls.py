@@ -32,12 +32,5 @@ urlpatterns = [
     path('marketing/', include('marketing.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += [
-    path(r'^media/(?P<path>.*)$', django.views.static.serve, {
-    'document_root': settings.MEDIA_ROOT}),]
-
 handler404 = 'kaberg_design.views.handler404'
 handler500 = handler500
-
