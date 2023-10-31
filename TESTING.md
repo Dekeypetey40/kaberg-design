@@ -20,7 +20,7 @@
 | 6           | Click "Logout" button on the page | Redirects user to index page and receive confirmation message | Y |          |
 | Navbar     |                        |                  |      |             |
 | 1          | Click "Home" in the navbar | Brings user to Home page | Y |          |
-| 2          | Click "Product Management" in the navbar | Brings user to page if superuser | Y |          |
+| 2          | Click "Product Management" in the navbar | Brings user to page if superuser | Y | Upon adding the product it is added to the database  |
 | 3          | Click "Logout" in the navbar | Brings user to loggout page | Y |          |
 | 4          | Click "Register" in the navbar | Brings user to sign up page | Y |          |
 | 5          | Click "log in" in the navbar | Takes user to log in page | Y |          |
@@ -34,15 +34,12 @@
 | 1      | Click on shop now button | Redirects user to the products page | Y |          |
 | Products Page  |                        |                  |      |             |
 | 1        | Click on product image | Brings user to product detail page | Y |          |
-| 2        | Click on the like button while signed in | The heart is filled in and the number of likes increases. | Y |          |
-| 3  | Write a comment while signed in | User is informed the comment is awaiting approval and comment appears when approved| Y | Edit and Delete buttons only appear beside comments that you are the owner of.   |
-| 4  | Click on the delete button  | User is redirected to the delete comment confirmation page | Y |          |
-| 5  | Click on the edit button  | User is redirected to the edit comment page | Y |          |
-| 6  | Click on the confirm delete button  | User's comment is deleted | Y |          |
-| 7  | Edit a user comment  | User receives confirmation their comment is edited and this is reflected immediately | Y |          |
-| 8  | Visit the delete comment url while not signed in as that user  | User is redirected to a page saying you can only modify comments if you are the user that created them | Y |          |
-| 9  | Visit the edit comment url while not signed in as that user  | User is redirected to a page saying you can only modify comments if you are the user that created them | Y |          |
-| Polls Page  |                        |                  |      |             |
+| 2        | Click on the add to favorites button | User receives message saying thank you and favorite added to database | Y |          |
+| 4  | Click on the delete button as superuser  | Product is deleted | Y |          |
+| 5  | Click on the edit button  | User is redirected to the edit product page | Y |  Upon editing the comment the product is updated        |
+| 8  | Visit the delete product url while not signed in as that user  | User is redirected to a page saying you can only modify products if you are an admin them | Y |          |
+| 9  | Visit the edit product url while not signed in as that user  | User is redirected to a page saying you can only modify products if you are an admin | Y |          |
+| News  |                        |                  |      |             |
 | 1     | Click on the vote button on a poll | Redirects user to the vote page for the poll they clicked on | Y |          |
 | 2    | Vote on a poll while signed in | User is shown the results of the poll receives a thank you for voting message | Y |          |
 | 3    | A user tries to vote again | User receives a message saying they may only vote once | Y |          |
