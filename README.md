@@ -363,18 +363,10 @@ Now that you’re in your virtual environment you can install packages.
 ## Content
 
 - A huge thank you to my mentor Aleksei Konovalov for all of his help throughout this process.
-- The method to paginate something compatible with Bootstrap 5 and the current Django was from [ourcodeword](https://ourcodeworld.com/articles/read/1757/how-to-implement-a-paginator-in-a-django-class-based-listview-compatible-with-bootstrap-5)
-- My knowledge on how to use django-taggit was gained through the [BugBytes](https://www.youtube.com/watch?v=213swbH8j_o&ab_channel=BugBytes) Youtube channel.
-- Flaticon and hero image were taken from [Freepik](https://www.freepik.com/)
-- My login/logout form templates were taken from dvrrajashekhar on [freefrontend](https://freefrontend.com/bootstrap-login-forms/#gsc.tab=0)
+- Flaticon and product images were taken from [Freepik](https://www.freepik.com/), [Pexels](https://www.pexels.com/) and [Flaticon](https://www.flaticon.com/)
 - Stackoverflow was of huge help at multiple points during the project.
-- [Starbootstrap](https://startbootstrap.com/theme/clean-blog) was very helpful in styling my website. I used a couple templates from that website and adapted them to suit my site.
-- Code Institue's I think therefore I blog project inspired my own blog website, which I customized to suit my needs.
+- I was inspired by the [Kenpachi's](https://github.com/GeorgianF/Kenpachi-P5-CI) project. The readme and various elements of the project inspired my own.
+- Code Institue's Boutique project inspired my own e-commerce website, which I customized to suit my needs.
 
 ---
-
-Credits
-Pexels
-Freepik
-
 https://www.facebook.com/profile.php?id=61552848392818
