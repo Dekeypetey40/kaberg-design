@@ -39,11 +39,10 @@
 | 5  | Click on the edit button  | User is redirected to the edit product page | Y |  Upon editing the comment the product is updated        |
 | 8  | Visit the delete product url while not signed in as that user  | User is redirected to a page saying you can only modify products if you are an admin them | Y |          |
 | 9  | Visit the edit product url while not signed in as that user  | User is redirected to a page saying you can only modify products if you are an admin | Y |          |
-| News  |                        |                  |      |             |
-| 1     | Click on the vote button on a poll | Redirects user to the vote page for the poll they clicked on | Y |          |
-| 2    | Vote on a poll while signed in | User is shown the results of the poll receives a thank you for voting message | Y |          |
-| 3    | A user tries to vote again | User receives a message saying they may only vote once | Y |          |
-| 4    | Vote on a poll without being signed in | User is told they must sign in to be able to vote | Y |          |
+| Newsletter  |                        |                  |      |             |
+| 1     | Fill in the form and click subcribe | User is informed they subscribed and they are added to the database | Y |          |
+| 2    | Click unsubscribe | User is taken to unsubscribe template | Y |          |
+| 3    | A user unsubscribes | User's inputted email is removed from the database | Y |          |
 | Admin Panel  |                        |                  |      |             |
 | 1    | Open admin url while signed in as a regular user | User is informed they are not authorized and is prompted to sign in with a different account  | Y |          |
 | 2    | Sign in as the superuser | Redirects user to the admin panel | Y |          |
