@@ -24,24 +24,23 @@ def contact_us(request):
             ['message'] + 'Contact Form Submission from {}'.format(name)
             form.save()
 
-
             try:
                 send_mail(
-                subject = subject,
-                message = message,
-                from_email = email, # customer's email
-                recipient_list = ['kmichaelmikhail@gmail.com'], # Sends to my email
-            )
+                    subject=subject,
+                    message=message,
+                    from_email=email,  # customer's email
+                    recipient_list=['kmichaelmikhail@gmail.com'],
+                    )
                 send_mail(
-                subject = subject,
-                message = 'Thank you for contacting us, we will get back to you shortly.',
-                from_email = email, # customer's email
-                recipient_list = [email], # Sends to my email
+                    subject=subject,
+                    message='Thank you for contacting us, we will get back to you shortly.',  # noqa
+                    from_email=email,  # customer's email
+                    recipient_list=[email],  # Sends to my email
             )
                 messages.success(
                     request,
                     'Message sent!')
-            except:
+            except Exception as e:
                 messages.error(
                     request,
                     "There was an error sending your message!"
