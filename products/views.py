@@ -6,8 +6,8 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
 from .models import Product, Favorites
-from checkout.models import Order, CustomerProfile
 from .forms import ProductForm
+
 
 def product_detail(request, product_id):
     """ A view to show individual products with additional info """

@@ -47,8 +47,6 @@
                         {% if user.is_authenticated %}
                             {% with user_favorites=user.favorites.all %}
                                 {% if product in user_favorites %}
-                                <a class="btn btn-small btn-danger"
-                                    href="{% url 'favorites' product_id=product.id %}">Remove from Favorites</a>
                                         {% else %}
                                 <a class="btn btn-small btn-secondary"
                                     href="{% url 'favorites' product_id=product.id %}">Add to Favorites</a>
