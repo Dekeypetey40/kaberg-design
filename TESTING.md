@@ -85,6 +85,7 @@ All python code written by me passes PEP8 standards using the [CI Python Linter]
 ### HTML W3C Validator
 
 All HTML code written by me passed through the [W3C HTML validator](https://validator.w3.org/#validate_by_uri).
+- Some minor errors were shown. We had a few trailing and unclosed divs, but after those were fixed there were no issues.
 
 ### Jigsaw CSS Validator
 
