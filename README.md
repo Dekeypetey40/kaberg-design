@@ -102,23 +102,32 @@ Wireframe of a blog post
 
 ![Image of welcome screen](documentation/kaberg-design-home-page.png)
 
-## Reading a blog post
+## Products
 
-- Here you can see what a blog post looks like when you click read more.
-- At the bottom, you can leave a comment, like the post, and read others' comments.
-![Blog post](documentation/whole-post-title.png)
-![Blog post text](documentation/whole-post-text.png)
+- Here you see the list of products.
+- One can filter the products by typing in the search bar or clicking the filter buttons, which filter by category.
+- The add to favorites button saves the users favorites in the database
+- One can adjust the quantity of any product and add it to the bag on the product detail page.
+![products](documentation/products.png)
+![product](documentation/product.png)
+![product](documentation/cushions-filter.png)
+![product](documentation/search-monkey.png)
 
-## Tags
+## Account Registration
 
-- You can see tags on each blog post, which give the user additional information as to what the post is about.
-- Users can click on the tags and get a filtered list of blog posts containing that tag.
-![Tags](documentation/tag-filter.png)
+- There are messages letting the user know if they have successfully signed in or out.
+- Username and password fields are required and prompt the user if they input invalid data.
+![Invalid Input](documentation/not-correct.png)
+![Password Required](documentation/password-required.png)
+![Login](documentation/sign-in.png)
+![Log out](documentation/sign-out.png)
+![Invalid email](documentation/invalid-email.png)
+![Invalid Pass](documentation/invalid-password.png)
 
-## Polls
+## Contact Us
 
-- Here you can look at the list of polls that you can vote on.
-- One can only vote once on each poll.
+- Here you can send a message to the store owner
+- It sends an email
 - Once you vote you get to see a piechart with the results of the poll.
 ![List of polls](documentation/list-of-polls.png)
 ![Poll Results](documentation/poll-voted.png)
@@ -126,15 +135,7 @@ Wireframe of a blog post
 
 ## Account creation and logging in and out
 
-- There are messages letting the user know if they have successfully signed in or out.
-- If a user wants to logout the site asks them if they are sure.
-- Username and password fields are required and prompt the user if they input invalid data.
-![Invalid Username](documentation/invalid-username.png)
-![Password Required](documentation/password-required.png)
-![Login](documentation/login-form.png)
-![List of polls](documentation/logout-prompt.png)
-![List of polls](documentation/navbar-logged-in.png)
-![List of polls](documentation/navbar-logged-out.png)
+
 
 ## Comment CRUD Functionality for Users
 
