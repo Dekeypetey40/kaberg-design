@@ -7,31 +7,33 @@
 | 1           | Click on the register button | Redirected to register page | Y |          |
 | 2           | Click on Sign Up | User is logged in and receives a message | Y |          |
 | 3           | Enter valid email | Field will only accept email address format | Y |          |
-| 4           | Enter valid username | Username field will only accept characters + unique username | Y |          |
+| 4           | Enter valid username | Username must be unique | Y |          |
 | 5         | Enter valid password | Field will only accept secure passwords | Y |          |
 | 6          | Enter valid password confirmation | Field will only accept the same password from the previous field | Y |          |
 | 7          | Click the sign in link| Takes user to the sign in page | Y |          |
 | Log In      |                        |                  |      |             |
 | 1           | Click on Login button in the navbar | Brought to login page | Y |          |
 | 2           | Click on the SignUp link in the form | Redirected to the sign up page | Y |          |
-| 3           | Enter valid username | Field will only accept username format | Y |          |
-| 4           | Enter valid password | Field will only accept correct passwords | Y |          |
-| 5           | Click on the Sign In button | Takes user to the index page abd receives confirmation message | Y |          |
-| 6           | Click "Logout" in the navbar | Takes user to log out page to confirm logout | Y |          |
-| 7           | Click "Logout" button on the page | Redirects user to index page and receive confirmation message | Y |          |
+| 3           | Enter valid password | Field will only accept correct passwords | Y |          |
+| 4           | Click on the Sign In button | Takes user to the index page abd receives confirmation message | Y |          |
+| 5           | Click "Logout" in the navbar | Takes user to log out page to confirm logout | Y |          |
+| 6           | Click "Logout" button on the page | Redirects user to index page and receive confirmation message | Y |          |
 | Navbar     |                        |                  |      |             |
 | 1          | Click "Home" in the navbar | Brings user to Home page | Y |          |
-| 2          | Click "Polls" in the navbar | Brings user to polls page | Y |          |
+| 2          | Click "Product Management" in the navbar | Brings user to page if superuser | Y |          |
 | 3          | Click "Logout" in the navbar | Brings user to loggout page | Y |          |
 | 4          | Click "Register" in the navbar | Brings user to sign up page | Y |          |
 | 5          | Click "log in" in the navbar | Takes user to log in page | Y |          |
 | 6          | Click the logo on the right in the navbar | Takes user to home page | Y |          |
+| 7          | Click the "Filter Products by" link and all menu items | Takes user to the products page with the correct products filtered | Y |          |
+| 7          | Click the "Home Decoration" link and all menu items | Takes user to the products page with the correct products filtered | Y |          |
+| 7          | Click the "For Children" link and all menu items | Takes user to the products page with the correct products filtered | Y |          |
+| 7          | Click the "Antique" link and all menu items | Takes user to the products page with the correct products filtered | Y |          |
+| 7          | Click the "Contact us" link | Takes user to the contact us page | Y |          |
 | Home Page  |                        |                  |      |             |
-| 1        | Click on a tag button | User redirected to a page with posts only with that tag | Y |          |
-| 2      | Click on read more button | Redirects user to the post assigned to the read more button | Y |          |
-| 3        | Click on the pagination meny | Redirects user to the correct page | Y |          |
-| Blog post  |                        |                  |      |             |
-| 1        | Click on the like button while signed out | Nothing happens | Y |          |
+| 1      | Click on shop now button | Redirects user to the products page | Y |          |
+| Products Page  |                        |                  |      |             |
+| 1        | Click on product image | Brings user to product detail page | Y |          |
 | 2        | Click on the like button while signed in | The heart is filled in and the number of likes increases. | Y |          |
 | 3  | Write a comment while signed in | User is informed the comment is awaiting approval and comment appears when approved| Y | Edit and Delete buttons only appear beside comments that you are the owner of.   |
 | 4  | Click on the delete button  | User is redirected to the delete comment confirmation page | Y |          |
