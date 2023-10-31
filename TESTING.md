@@ -48,15 +48,19 @@
 | 2    | Sign in as the superuser | Redirects user to the admin panel | Y |          |
 | 3   | Click on any of the models in the admin panel | User sees a list of the objects with that model | Y |     |
 | 4    | Click a specific object within the list of models  | User is shown the properties of that object | Y |  The user may modify, delete, or add objects from this page    |
-| 5     | Click "add x" where x = a model object | The user is redirected to a page where they fill in details for that model object || Y | Once the user saves their created object they receive confirmation at the top of the page|
-| 6     | Click delete on an object | User is taken to delete confirmation page and upon confirmation receive a message at the top of the page | Y |   |
-| 7     | Approve a user comment | The comment shows as approved and all users can then view that comment | Y |    |
-| 8         | Unapprove a user comment | The comment can only be seen by the admin until the comment is approved | Y |          |
-| 9       | Edit a post | The content of the post reflects the changes made | Y |          |
+| 5     | Click delete on an object | User is taken to delete confirmation page and upon confirmation receive a message at the top of the page | Y |   |
+| 6     | Approve a user comment | The comment shows as approved and all users can then view that comment | Y |    |
+| 7         | Unapprove a user comment | The comment can only be seen by the admin until the comment is approved | Y |          |
+| 8       | Edit a post | The content of the post reflects the changes made | Y |          |
 | 404 Page  |                        |                  |      |             |
-| 1        | Enter an invalid url  | User redirected to a custom 404 error page | Y |          |
+| 9        | Enter an invalid url  | User redirected to a custom 404 error page | Y |          |
 | 500 Page  |                        |                  |      |             |
-| 1        | Trigger a 500 error | User redirected to a custom 500 error page | Y |          |
+| 10        | Trigger a 500 error | User redirected to a custom 500 error page | Y |          |
+| Payments  |                        |                  |      |             |
+| 1    | Click secure checkout  | Y | User is taken to checkout page and order summary is shown | Y |          |
+| 2    | Fill in information and submit form | Order is processed and user taken to success page | Y |  All form validation functions correctly        |
+| 3   | Remove or change contents in the cart | The user can change quantity or remove products as wanted | Y |     |
+| 4    | Click a specific object within the list of models  | User is shown the properties of that object | Y |  The user may modify, delete, or add objects from this page    |
 
 ---
 
