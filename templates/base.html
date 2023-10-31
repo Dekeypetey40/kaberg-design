@@ -143,14 +143,20 @@
     </main>
     <!-- Footer-->
     <footer class="py-3 bg-green text-black">
-        <div class="container">
-            <a class="text-underline-hover footer-text fw-bolder text-black"
-                aria-label="Contact us here" href="{% url 'contact_us' %}">Contact us
-                here</a>
+        <div class="row">
+            <div class="col d-flex flex-column justify-content-center">
+            <p class="text-center">
+                <a class="text-underline-hover footer-text fw-bolder text-black"
+                    aria-label="Contact us here" href="{% url 'contact_us' %}">Contact us
+                    here.</a>
+            </p>
+            <p class="text-center">
                 <a class="text-underline-hover footer-text fw-bolder text-black"
                 aria-label="Subscribe to our newsletter here" href="{% url 'subscribe' %}">Subscribe to our newsletter here</a>
+            </p>
             <p class="m-0 text-center footer-text">See more of the website creator's work <a class="text-underline-hover footer-text fw-bolder text-black" target="_blank"
                 aria-label="Visit the GitHub page of the creator of this site here" href="https://github.com/Dekeypetey40">here</a></p>
+            </div>
         </div>
     </footer>
     <!-- JS to apply active class to navlinks from stackoverflow -->
