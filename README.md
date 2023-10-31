@@ -154,10 +154,9 @@ Wireframe of a blog post
 
 # Future Features
 
-- Allowing users to make blog posts.
+- Showing users list of favorited products
 - An about page.
-- Comment likes
-- Discussions on polls
+- Send email upon purchase
 
 ---
 
@@ -271,8 +270,8 @@ DEBUG = True
     }
 
     # Bucket Config
-    AWS_STORAGE_BUCKET_NAME = 'kenpachi-estore'
-    AWS_S3_REGION_NAME = 'eu-central-1'
+    AWS_STORAGE_BUCKET_NAME = 'kaberg-design'
+    AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
@@ -291,11 +290,9 @@ DEBUG = True
 1. Add allowed hosts to settings.py:
     ```
     ALLOWED_HOSTS = [
-    'kenpachi-estore.herokuapp.com',
+    'kaberg-design.herokuapp.com',
     'localhost',
     '.localhost',
-    '127.0.0.1',
-    '[::1]'
     ]
     ``` 
 
@@ -303,29 +300,18 @@ DEBUG = True
     * ``` web: gunicorn PROJECT_NAME.wsgi ```
 
 1. Make an initial commit and push the code to the GitHub Repository.
-    * ```git add .```
-    * ```git commit -m "Initial deployment"```
-    * ```git push```
-    
 1. **Run server locally** with ``` python3 manage.py runserver ```
 
 
-To setup a **virtual env** on **MacOS/Windows**:
-1. Create a new folder on your machine
-2. Rename it as you wish
-3. For MacOS run in the terminal ```brew install git``` / Windows visit [Git](https://git-scm.com/download/windows)
-4. Fro MacOS right click on the folder and select "New Terminal at Folder" / Windows right click into the folder and "GitBash here"
-5. Creating a virtual environment: run command MacOS ```python3 -m venv env``` / Windows ```py -m venv env```
-6. Activating a virtual environment: run command MacOS ```source env/bin/activate``` / Windows ```.\env\Scripts\activate```
-7. You can confirm you’re in the virtual environment by checking the location of your Python interpreter: MacOS ```where python``` / Windows ```where python```
-8. It should be in the env directory: MacOS ```.../env/bin/python``` / Windows ```...\env\Scripts\python.exe```
+To setup a **virtual env** on **Linux**:
+1. Creating a virtual environment: run command ```python3 -m .venv```
+2. Activating a virtual environment: run command MacOS ```source .venv/bin/activate```
 As long as your virtual environment is activated pip will install packages into that specific environment and you’ll be able to import and use packages in your Python application.
-9. Leaving the virtual environment: ```deactivate```
 
 Now that you’re in your virtual environment you can install packages.
 
-1. Install Django with version 3.2:
-    * ```pip3 install 'django<4'```
+1. Install Django:
+    * ```pip3 install 'django'```
 1. Install gunicorn:
     * ```pip3 install gunicorn```
 1. Install supporting libraries:
