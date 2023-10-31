@@ -149,6 +149,10 @@ Wireframe of a blog post
 
 # Marketing
 
+## Search Engine Optimization
+
+- All pages are above 90 rating on lighthouse
+
 ## Facebook
 
 - My facebook page allows people to connect with Kaberg Design.
