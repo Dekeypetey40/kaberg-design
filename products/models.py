@@ -55,11 +55,16 @@ class Product(models.Model):
 
 
 class Favorites(models.Model):
+    class Meta:
+        verbose_name_plural = 'Favorites'
+
     user = models.ForeignKey(User, 
                              related_name='favorites',
                              on_delete=models.CASCADE)
     product = models.ForeignKey(Product,
                              related_name='favorites',
-                             on_delete=models.CASCADE)
+                             on_delete=models.CASCADE,
+                             null=True,
+                             )
     def __str__(self):
         return f'({self.user},favorites)'

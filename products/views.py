@@ -152,5 +152,6 @@ def add_to_favorites(request, product_id):
         favorite = favorite.first()
         favorite.delete()
     else:
-        favorite=Favorites.object.create(user=request.user,
-                                         product=request.POST.get('product_id'))
+        favorite=Favorites.objects.create(user=request.user,
+                                         product=product)
+    return redirect(reverse('products'))
