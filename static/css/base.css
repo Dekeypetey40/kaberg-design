@@ -325,6 +325,12 @@ select option[value=""] {
 footer {
     margin-top: auto;
 }
+.footer-text {
+    text-decoration: none;
+}
+.text-underline-hover:hover {
+    text-decoration: underline;
+  }
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
