@@ -121,6 +121,11 @@ Bug 4
 - Problem: Filter function was not able to find all products that had a subcategory sharing the same parent category.
 - Solution: I adjusted the database requests I was making in my view to in order to query the right data in database in the template.
 
+Bug 5
+
+- Problem: When making a payment orders where added to the database, but the total was coming out to 0 and the user received a 500 error.
+- Solution: Line 52 and 53 in models.py in the checkout app had a syntax error. The line was broken up into two to make it PEP8 compliant, but this resulted in the order total not being calculated. I made the calculation one line and marked it with # noqa as it is too long for PEP8 standards.
+
 ## Unfixed Bugs
 
 - There are no unsolved bugs.
