@@ -23,12 +23,6 @@ def subscribe(request):
                 proper email to subscribe")
             return redirect("home")
 
-        if get_user_model().objects.filter(email=email).first():
-            messages.error(request, f"There is a registered\
-                user with {email}. You must login\
-                    to subscribe or unsubscribe.")
-            return redirect("home")
-
         try:
             validate_email(email)
         except ValidationError as e:
