@@ -31,9 +31,9 @@ def subscribe(request):
 
         subscription = SubscribedUsers.objects.filter(email=email)
         if subscription.exists():
-            messages.error(request, f" The email address, {email}, is already subscribed\
-                           to our newsletter. You have been redirected\
-                           to the unsubscribe page")
+            messages.error(request, f" The email address, {email}, is already\
+                           subscribed to our newsletter. You have\
+                           been redirected to the unsubscribe page")
             return redirect("unsubscribe")
 
         subscribe_model_instance = SubscribedUsers()
