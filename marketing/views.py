@@ -29,6 +29,13 @@ def subscribe(request):
             messages.error(request, e.messages[0])
             return redirect("home")
 
+        subscription = SubscribedUsers.objects.filter(email=email)
+        if subscription.exists():
+            messages.error(request, f" The email address, {email}, is already subscribed\
+                           to our newsletter. You have been redirected\
+                           to the unsubscribe page")
+            return redirect("unsubscribe")
+
         subscribe_model_instance = SubscribedUsers()
         subscribe_model_instance.name = name
         subscribe_model_instance.email = email
@@ -47,11 +54,6 @@ def unsubscribe(request):
         if not email:
             messages.error(request, "You must input a proper\
                 name and email to unsubscribe")
-            return redirect("home")
-
-        if get_user_model().objects.filter(email=email).first():
-            messages.error(request, f"There is a registered user with {email}.\
-                You must login to subscribe or unsubscribe.")
             return redirect("home")
 
         unsubscribe_user = SubscribedUsers.objects.filter(email=email).first()
