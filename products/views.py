@@ -1,78 +1,70 @@
-from django.shortcuts import render
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from __future__ import annotations
+
 from django.contrib import messages
-from django.db.models.functions import Lower
-from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+from django.db.models.functions import Lower
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 
-from .models import Product, Category, Favorites
 from .forms import ProductForm
+from .models import Category, Product, Favorites
+
+# Top-level groups used by your dropdowns
+TOP_LEVEL = {"home_decoration", "antique", "for_children"}
 
 
-def product_detail(request, product_id):
-    """ A view to show individual products with additional info """
-
-    product = get_object_or_404(Product, pk=product_id)
-
-    context = {
-        'product': product,
-    }
-
-    return render(request, 'products/product_detail.html', context)
+def product_detail(request, product_id: int):
+    """Show a single product."""
+    product = get_object_or_404(Product.objects.select_related("category"), pk=product_id)
+    return render(request, "products/product_detail.html", {"product": product})
 
 
-def all_products_view(request, category_slug=None):
-    """ A view to show all products, including sorting and search queries """
-
-    products = Product.objects.all()
-    query = None
-    sort = None
-    direction = None
+def all_products_view(request, category_slug: str | None = None):
+    """
+    List products with optional:
+      - category filter (?category=lamps) OR top-level group (?category=home_decoration)
+      - search (?q=chair)
+      - sort (?sort=price&direction=asc|desc, or sort=name|category)
+    """
+    products = Product.objects.select_related("category").all()
     total_products = Product.objects.count()
 
-    # Sorting
+    # -------- category filtering
+    slug = request.GET.get("category") or category_slug
+    if slug:
+        if slug in TOP_LEVEL:
+            products = products.filter(category__parent_category__slug=slug)
+        else:
+            products = products.filter(category__slug=slug)
+
+    # -------- search
+    q = (request.GET.get("q") or "").strip()
+    if q:
+        products = products.filter(Q(name__icontains=q))
+
+    # -------- sort
     sort = request.GET.get("sort")
-    direction = request.GET.get("direction")
+    direction = request.GET.get("direction", "asc")
     if sort:
-        sortkey = sort
         if sort == "name":
             products = products.annotate(lower_name=Lower("name"))
-            sortkey = "lower_name"
+            sort_key = "lower_name"
         elif sort == "category":
-            sortkey = "category__name"
-        if direction == "desc":
-            sortkey = f"-{sortkey}"
-        products = products.order_by(sortkey)
-
-    # Category filter — only filter when a category is provided
-    category_slug = request.GET.get("category")
-    if category_slug:
-        # Top-level groupings (use parent_category)
-        if category_slug in {"home_decoration", "antique", "for_children"}:
-            products = products.filter(category__parent_category__slug=category_slug)
+            sort_key = "category__name"
         else:
-            products = products.filter(category__slug=category_slug)
+            sort_key = sort
+        if direction == "desc":
+            sort_key = f"-{sort_key}"
+        products = products.order_by(sort_key)
 
-    # Search (independent of category)
-    query = request.GET.get("q", "").strip()
-    if "q" in request.GET:
-        if not query:
-            messages.error(request, "You didn't enter any search criteria!")
-            return redirect("products")
-        products = products.filter(Q(name__icontains=query))
-
-    current_sorting = f"{sort or ''}_{direction or ''}"
-
-    # Always provide a safe, iterable value (or just [] if you don’t need it)
-    current_categories = list(
-        Category.objects.filter(parent_category__isnull=True).order_by("name")
-    )
+    # Show the three main groups in the badge row
+    current_categories = Category.objects.filter(parent_category__isnull=True).order_by("name")
 
     context = {
         "products": products,
-        "search_term": query or None,
+        "search_term": q,
         "current_categories": current_categories,
-        "current_sorting": current_sorting,
+        "current_sorting": f"{sort}_{direction}" if sort else "",
         "total_products": total_products,
     }
     return render(request, "products/products.html", context)
@@ -80,86 +72,70 @@ def all_products_view(request, category_slug=None):
 
 @login_required
 def add_product(request):
-    """ Add a product to the store if admin """
+    """Create a new product (superusers only)."""
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request, 'Successfully added product!')
-            return redirect('product_detail', product.id)
-        else:
-            messages.error(request,
-                           'Failed to add product.\
-                               Please ensure the form is valid.')
+            messages.success(request, "Successfully added product!")
+            return redirect("product_detail", product.id)
+        messages.error(request, "Failed to add product. Please ensure the form is valid.")
     else:
         form = ProductForm()
 
-    template = 'products/add_product.html'
-    context = {
-        'form': form,
-    }
-
-    return render(request, template, context)
+    return render(request, "products/add_product.html", {"form": form})
 
 
 @login_required
-def edit_product(request, product_id):
-    """ Edit a product in the store """
+def edit_product(request, product_id: int):
+    """Edit a product (superusers only)."""
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
+
     product = get_object_or_404(Product, pk=product_id)
-    if request.method == 'POST':
+
+    if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(request, 'Please ensure the form is valid.')
+            messages.success(request, "Successfully updated product!")
+            return redirect(reverse("product_detail", args=[product.id]))
+        messages.error(request, "Please ensure the form is valid.")
     else:
         form = ProductForm(instance=product)
-        messages.info(request, f'You are editing {product.name}')
+        messages.info(request, f"You are editing {product.name}")
 
-    template = 'products/edit_product.html'
-    context = {
-        'form': form,
-        'product': product,
-    }
-
-    return render(request, template, context)
+    return render(request, "products/edit_product.html", {"form": form, "product": product})
 
 
 @login_required
-def delete_product(request, product_id):
-    """ Delete a product from the store """
+def delete_product(request, product_id: int):
+    """Delete a product (superusers only)."""
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
 
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.success(request, 'Product deleted!')
-    return redirect(reverse('products'))
+    messages.success(request, "Product deleted!")
+    return redirect(reverse("products"))
 
 
 @login_required
-def add_to_favorites(request, product_id):
-    """
-    Toggles a product as a favorite if user is logged in
-    """
+def add_to_favorites(request, product_id: int):
+    """Toggle product in the user's favorites."""
     product = get_object_or_404(Product, pk=product_id)
-    favorite = Favorites.objects.filter(product=product, user=request.user)
+    favorite_qs = Favorites.objects.filter(product=product, user=request.user)
 
-    if favorite.exists():
-        favorite = favorite.first()
-        favorite.delete()
+    if favorite_qs.exists():
+        favorite_qs.first().delete()
     else:
-        favorite = Favorites.objects.create(user=request.user,
-                                            product=product)
-        messages.success(request, 'Thanks for liking our product!')
-    return redirect(reverse('products'))
+        Favorites.objects.create(user=request.user, product=product)
+        messages.success(request, "Thanks for liking our product!")
+
+    return redirect(reverse("products"))
