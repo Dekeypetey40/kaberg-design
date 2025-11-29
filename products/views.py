@@ -26,35 +26,33 @@ def all_products_view(request, category_slug=None):
 
     products = Product.objects.all()
     query = None
-    categories = None
     sort = None
     direction = None
-    total_products = Product.objects.all().count()
+    total_products = Product.objects.count()
 
-    if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
-            if sortkey == 'category':
-                sortkey = 'category__name'
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
+    # Sorting
+    if request.GET.get("sort"):
+        sortkey = request.GET["sort"]
+        sort = sortkey
+        if sortkey == "name":
+            products = products.annotate(lower_name=Lower("name"))
+            sortkey = "lower_name"
+        elif sortkey == "category":
+            sortkey = "category__name"
+        if request.GET.get("direction") == "desc":
+            sortkey = f"-{sortkey}"
+            direction = "desc"
+        products = products.order_by(sortkey)
 
+    # Category filter — only filter when a category is provided
     category_slug = request.GET.get("category")
     if category_slug:
-    # Top-level grouping categories filter via parent_category
         if category_slug in {"home_decoration", "antique", "for_children"}:
             products = products.filter(category__parent_category__slug=category_slug)
-    else:
-        products = products.filter(category__slug=category_slug)
+        else:
+            products = products.filter(category__slug=category_slug)
 
-# Search should run regardless of category presence
+    # Search (independent of category)
     if "q" in request.GET:
         query = request.GET["q"].strip()
         if not query:
@@ -62,17 +60,16 @@ def all_products_view(request, category_slug=None):
             return redirect(reverse("products"))
         products = products.filter(Q(name__icontains=query))
 
-    current_sorting = f'{sort}_{direction}'
+    current_sorting = f"{sort}_{direction}"
 
     context = {
-        'products': products,
-        'search_term': query,
-        'current_categories': categories,
-        'current_sorting': current_sorting,
-        'total_products': total_products,
+        "products": products,
+        "search_term": query,
+        "current_categories": None,  # you're not using this
+        "current_sorting": current_sorting,
+        "total_products": total_products,
     }
-
-    return render(request, 'products/products.html', context)
+    return render(request, "products/products.html", context)
 
 
 @login_required
