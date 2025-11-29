@@ -5,7 +5,7 @@ from django.db.models.functions import Lower
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
-from .models import Product, Favorites
+from .models import Product, Category, Favorites
 from .forms import ProductForm
 
 
@@ -31,41 +31,47 @@ def all_products_view(request, category_slug=None):
     total_products = Product.objects.count()
 
     # Sorting
-    if request.GET.get("sort"):
-        sortkey = request.GET["sort"]
-        sort = sortkey
-        if sortkey == "name":
+    sort = request.GET.get("sort")
+    direction = request.GET.get("direction")
+    if sort:
+        sortkey = sort
+        if sort == "name":
             products = products.annotate(lower_name=Lower("name"))
             sortkey = "lower_name"
-        elif sortkey == "category":
+        elif sort == "category":
             sortkey = "category__name"
-        if request.GET.get("direction") == "desc":
+        if direction == "desc":
             sortkey = f"-{sortkey}"
-            direction = "desc"
         products = products.order_by(sortkey)
 
     # Category filter — only filter when a category is provided
     category_slug = request.GET.get("category")
     if category_slug:
+        # Top-level groupings (use parent_category)
         if category_slug in {"home_decoration", "antique", "for_children"}:
             products = products.filter(category__parent_category__slug=category_slug)
         else:
             products = products.filter(category__slug=category_slug)
 
     # Search (independent of category)
+    query = request.GET.get("q", "").strip()
     if "q" in request.GET:
-        query = request.GET["q"].strip()
         if not query:
             messages.error(request, "You didn't enter any search criteria!")
-            return redirect(reverse("products"))
+            return redirect("products")
         products = products.filter(Q(name__icontains=query))
 
-    current_sorting = f"{sort}_{direction}"
+    current_sorting = f"{sort or ''}_{direction or ''}"
+
+    # Always provide a safe, iterable value (or just [] if you don’t need it)
+    current_categories = list(
+        Category.objects.filter(parent_category__isnull=True).order_by("name")
+    )
 
     context = {
         "products": products,
-        "search_term": query,
-        "current_categories": None,  # you're not using this
+        "search_term": query or None,
+        "current_categories": current_categories,
         "current_sorting": current_sorting,
         "total_products": total_products,
     }
