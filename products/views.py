@@ -46,26 +46,21 @@ def all_products_view(request, category_slug=None):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-        if 'category' in request.GET:
-            if request.GET['category'] in ['home_decoration',
-                                           'antique',
-                                           'for_children']:
-                product = Product.objects.get(id=1)
-                print(product.category)
-                print(product.category.parent_category)
-                products = products.filter(category__parent_category__slug=request.GET['category'])  # noqa
-            else:
-                products = products.filter(category__slug=request.GET['category'])  # noqa
+    category_slug = request.GET.get("category")
+    if category_slug:
+    # Top-level grouping categories filter via parent_category
+        if category_slug in {"home_decoration", "antique", "for_children"}:
+            products = products.filter(category__parent_category__slug=category_slug)
+    else:
+        products = products.filter(category__slug=category_slug)
 
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(request,
-                               "You didn't enter any search criteria!")
-                return redirect(reverse('products'))
-
-            queries = Q(name__icontains=query)
-            products = products.filter(queries)
+# Search should run regardless of category presence
+    if "q" in request.GET:
+        query = request.GET["q"].strip()
+        if not query:
+            messages.error(request, "You didn't enter any search criteria!")
+            return redirect(reverse("products"))
+        products = products.filter(Q(name__icontains=query))
 
     current_sorting = f'{sort}_{direction}'
 
