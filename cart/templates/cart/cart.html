@@ -55,6 +55,14 @@ page_header %}
               {% endif %}
             </td>
 
+            <td class="py-3">
+              <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+            </td>
+
+            <td class="py-3">
+              <p class="my-0">${{ item.product.price }}</p>
+            </td>
+
             <td class="py-3 w-25">
               <form
                 class="form update-form"
@@ -71,9 +79,7 @@ page_header %}
                         aria-label="reduce quantity"
                         id="decrement-qty_{{ item.item_id }}"
                       >
-                        <span>
-                          <i class="fas fa-minus fa-sm"></i>
-                        </span>
+                        <span><i class="fas fa-minus fa-sm"></i></span>
                       </button>
                     </div>
                     <input
@@ -94,9 +100,7 @@ page_header %}
                         aria-label="increase quantity"
                         id="increment-qty_{{ item.item_id }}"
                       >
-                        <span>
-                          <i class="fas fa-plus fa-sm"></i>
-                        </span>
+                        <span><i class="fas fa-plus fa-sm"></i></span>
                       </button>
                     </div>
                   </div>
@@ -110,13 +114,15 @@ page_header %}
                 ><small>Remove</small></a
               >
             </td>
+
             <td class="py-3">
               <p class="my-0">
-                ${{ item.product.price | calc_subtotal:item.quantity }}
+                ${{ item.product.price|calc_subtotal:item.quantity }}
               </p>
             </td>
           </tr>
           {% endfor %}
+
           <tr>
             <td colspan="5" class="pt-5 text-right">
               <h6><strong>Total: ${{ total|floatformat:2 }}</strong></h6>
@@ -132,15 +138,14 @@ page_header %}
               {% endif %}
             </td>
           </tr>
+
           <tr>
             <td colspan="5" class="text-right">
               <a
                 href="{% url 'products' %}"
                 class="btn btn-outline-dark rounded-0 btn-lg"
               >
-                <span class="icon">
-                  <i class="fas fa-chevron-left"></i>
-                </span>
+                <span class="icon"><i class="fas fa-chevron-left"></i></span>
                 <span class="text-uppercase btn-secondary">Keep Shopping</span>
               </a>
               <a
@@ -148,9 +153,7 @@ page_header %}
                 class="btn btn-secondary rounded-0 btn-lg"
               >
                 <span class="text-uppercase">Secure Checkout</span>
-                <span class="icon">
-                  <i class="fas fa-lock"></i>
-                </span>
+                <span class="icon"><i class="fas fa-lock"></i></span>
               </a>
             </td>
           </tr>
@@ -159,9 +162,7 @@ page_header %}
       {% else %}
       <p class="lead mb-5">Your cart is empty.</p>
       <a href="{% url 'products' %}" class="btn btn-secondary rounded-0 btn-lg">
-        <span class="icon">
-          <i class="fas fa-chevron-left"></i>
-        </span>
+        <span class="icon"><i class="fas fa-chevron-left"></i></span>
         <span class="text-uppercase">Keep Shopping</span>
       </a>
       {% endif %}
@@ -173,17 +174,17 @@ page_header %}
 
 <script type="text/javascript">
   // Update quantity on click
-  $(".update-link").click(function (e) {
-    var form = $(this).prev(".update-form");
+  $(".update-link").click(function () {
+    const form = $(this).prev(".update-form");
     form.submit();
   });
 
   // Remove item and reload on click
-  $(".remove-item").click(function (e) {
-    var csrfToken = "{{ csrf_token }}";
-    var itemId = $(this).attr("id").split("remove_")[1];
-    var url = `/cart/remove/${itemId}/`;
-    var data = { csrfmiddlewaretoken: csrfToken };
+  $(".remove-item").click(function () {
+    const csrfToken = "{{ csrf_token }}";
+    const itemId = $(this).attr("id").split("remove_")[1];
+    const url = `/cart/remove/${itemId}/`;
+    const data = { csrfmiddlewaretoken: csrfToken };
 
     $.post(url, data).done(function () {
       location.reload();
